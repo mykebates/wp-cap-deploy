@@ -7,9 +7,9 @@ if ( file_exists( dirname( __FILE__ ) . '/local-config.php' ) ) {
 	include( dirname( __FILE__ ) . '/local-config.php' );
 } else {
 	define( 'WP_LOCAL_DEV', false );
-	define( 'DB_NAME', 'mykecity_mcwp' );
-	define( 'DB_USER', 'mykecity' );
-	define( 'DB_PASSWORD', '!@JordoSig2187' );
+	define( 'DB_NAME', 'deploy_1' );
+	define( 'DB_USER', 'root' );
+	define( 'DB_PASSWORD', 'password' );
 	define( 'DB_HOST', 'localhost' ); // Probably 'localhost'
 }
 
