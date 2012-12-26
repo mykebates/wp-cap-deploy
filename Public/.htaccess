@@ -1,0 +1,42 @@
+# BEGIN WordPress Skeleton
+<IfModule mod_rewrite.c>
+        RewriteEngine On
+        RewriteBase /
+
+        # Iternally rewrite requests to document root as /wp/index.php
+        RewriteCond %{REQUEST_URI} ^/$
+        ReWriteRule ^(.*)$ /wp/index.php [L]
+
+        # Internally rewrite /wp/*.php|html|txt files as /*.php|txt
+        RewriteCond %{REQUEST_URI} ^/(.*)\.(php|txt)$
+        RewriteCond %{REQUEST_URI} !^/wp/.*$
+        RewriteRule ^(.*)$ /wp/$1 [L]
+
+        # Internally rewrite /wp/wp-admin as /wp-admin
+        RewriteCond %{REQUEST_URI} ^/wp-admin/.*$
+        RewriteCond %{REQUEST_URI} !^/wp/wp-admin/.*$
+        RewriteRule ^(.*)$ /wp/$1 [L]
+
+        # Internally rewrite /wp/wp-includes as /wp-includes
+        RewriteCond %{REQUEST_URI} ^/wp-includes/.*$
+        RewriteCond %{REQUEST_URI} !^/wp/wp-includes/.*$
+        RewriteRule ^(.*)$ /wp/$1 [L]
+
+	# Internally rewrite /wp/wp-content/themes/* as /wp-content/themes/*
+        RewriteCond %{REQUEST_URI} ^/wp-content/themes/.*$
+        RewriteCond %{REQUEST_URI} !^/wp/wp-content/themes/.*$
+        RewriteRule ^(.*)$ /wp/$1 [L]
+</IfModule>
+# END WordPress Skeleton
+
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress
